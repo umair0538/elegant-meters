@@ -1,0 +1,80 @@
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/excanvas.js"></script>
+<script type="text/javascript" src="js/jquery.elegant.meter.js"></script>
+<title>Elegant Meters</title>
+</head>
+<body>
+<script>
+var meter1;
+var meter2;
+var meter3;
+
+$(function(){
+	meter1 = $("#meter_canvas1").elegantMeter({ 
+		needleSpeed: 0.5,
+		meterCenterX: 11, //value on x-axis where needle's pivot will be placed on meter image
+		meterCenterY: 130, //value on y-axis where needle's pivot will be placed on meter image
+		needleCenterX: 131, //value on x-axis of needle's pivot on needle image
+		needleCenterY: 8, //value on y-axis of needle's pivot on needle image
+		minAngle: 115,
+		maxAngle: 245,
+		startAngle: 115,
+		backgroundImage: "images/meter1_1.png",
+		needleImage: "images/needle1_1.png"
+	});
+	
+	meter2 = $("#meter_canvas2").elegantMeter({ 
+		needleSpeed: 2,
+		meterCenterX: 282,
+		meterCenterY: 285,
+		needleCenterX: 185,
+		needleCenterY: 24,
+		minAngle: -20,
+		maxAngle: 200,
+		startAngle: -20,
+		backgroundImage: "images/meter2_2.png",
+		needleImage: "images/needle2_2.png"
+	});
+	
+	meter3 = $("#meter_canvas3").elegantMeter({ 
+		needleSpeed: 1,
+		meterCenterX: 142,
+		meterCenterY: 145,
+		needleCenterX: 107,
+		needleCenterY: 11,
+		minAngle: -40,
+		maxAngle: 220,
+		startAngle: -40,
+		backgroundImage: "images/meter3_3.png",
+		needleImage: "images/needle3_3.png" 
+	});
+	
+	meter1.data('angle', document.getElementById('angle1').value);
+	meter2.data('angle', document.getElementById('angle2').value);
+	meter3.data('angle', document.getElementById('angle3').value);
+});
+</script>
+
+<div style="float:left;margin-right:30px;margin-top:50px;">
+	<canvas id="meter_canvas1" width="200" height="500"></canvas>
+	<div style="clear:both;"></div>
+	meter 1: <input type="text" id="angle1" value="220"/>
+	<input type="button" onclick="meter1.data('angle', document.getElementById('angle1').value);" value="change"/>
+</div>
+<div style="float:left;margin-right:30px;margin-top:50px;">
+	<canvas id="meter_canvas2" width="600" height="500"></canvas>
+	<div style="clear:both;"></div>
+	meter 2: <input type="text" id="angle2" value="100"/>
+	<input type="button" onclick="meter2.data('angle', document.getElementById('angle2').value);" value="change"/>
+</div>
+<div style="float:left;margin-top:50px;">
+	<canvas id="meter_canvas3" width="300" height="500"></canvas>
+	<div style="clear:both;"></div>
+	meter 3: <input type="text" id="angle3" value="150"/>
+	<input type="button" onclick="meter3.data('angle', document.getElementById('angle3').value);" value="change"/>
+</div>
+
+</body>
+</html>
